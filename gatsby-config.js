@@ -1,15 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `42's log`,
+    title: `42's Log`,
     author: {
       name: `42KIM`,
-      summary: `just a person trying to do something meaningful`,
+      summary: `A person trying to do something meaningful`,
     },
-    description: `보고 듣고 읽는 것들을 조금이라도 붙잡아두기 위해`,
+    description: `보고 듣고 읽은 것들의 파편을 붙잡아 두고자`,
     siteUrl: `https://42kim.github.io/`,
-    social: {
-      //twitter: `kylemathews`,
-    },
+    // social: {
+    //   twitter: `kylemathews`,
+    // },
   },
   plugins: [
     `gatsby-plugin-image`,

@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[42's Log]]></title><description><![CDATA[보고 듣고 읽은 것들의 파편을 붙잡아 두고자]]></description><link>https://42kim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 20 Apr 2021 12:36:47 GMT</lastBuildDate><item><title><![CDATA[Gatsby로 Github 블로그 만들기]]></title><description><![CDATA[…]]></description><link>https://42kim.github.io/tutorial/gatsby-tutorial/</link><guid isPermaLink="false">https://42kim.github.io/tutorial/gatsby-tutorial/</guid><pubDate>Tue, 20 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;0.&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[42's Log]]></title><description><![CDATA[보고 듣고 읽은 것들의 파편을 붙잡아 두고자]]></description><link>https://42kim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Apr 2021 12:09:51 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[npm  0. 프로젝트를 위해 Node.js에 대해 알아보기 시작했다. HTML, CSS, JS만 다뤄보다가 Node.js를 접하니 제일 먼저 이라는 게 눈에 띈다. , ,   등등 뭐만 하려고 하면 일단 npm…]]></description><link>https://42kim.github.io/tutorial/npm/</link><guid isPermaLink="false">https://42kim.github.io/tutorial/npm/</guid><content:encoded>&lt;h1&gt;[ npm ]&lt;/h1&gt;
+&lt;h3&gt;0.&lt;/h3&gt;
+&lt;p&gt;프로젝트를 위해 Node.js에 대해 알아보기 시작했다. HTML, CSS, JS만 다뤄보다가 Node.js를 접하니 제일 먼저 &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt;이라는 게 눈에 띈다. &lt;code class=&quot;language-text&quot;&gt;express&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;nodemon&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ejs&lt;/code&gt;  등등 뭐만 하려고 하면 일단 npm을 사용한다. 블로그를 만들 때 &lt;code class=&quot;language-text&quot;&gt;gatsby&lt;/code&gt; 프레임워크도 npm을 통해 설치했다. 어떻게 npm은 모든 걸 설치해주는 걸까. npm이 도대체 뭐지?&lt;/p&gt;
+&lt;h3&gt;1.&lt;/h3&gt;
+&lt;p&gt;이번에도 &lt;a href=&quot;https://docs.npmjs.com/about-npm&quot;&gt;npm Docs&lt;/a&gt;를 읽어보기로 한다.  설명에 따르면,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm은 가장 방대한 소프트웨어 레지스트리이다. 전세계의 오픈소스 개발자들이 &lt;code class=&quot;language-text&quot;&gt;package&lt;/code&gt;를 공유하기 위해 사용하며, 다양한 조직들이 내부 개발에 npm을 사용하기도 한다. npm은 다음 세 가지 요소로 구성된다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;웹사이트&lt;br&gt;
+: npm 웹사이트에서 다양한 패키지를 검색하고, 만들고, 관리할 수 있다.&lt;/li&gt;
+&lt;li&gt;CLI (Command Line Interface)&lt;br&gt;
+: npm은 터미널에서 구동한다.&lt;/li&gt;
+&lt;li&gt;레지스트리&lt;br&gt;
+: 레지스트리는 자바스크립트 소프트웨어, 관련 메타정보가 담긴 거대한 데이터베이스다. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;라고 한다.  npm은 &lt;code class=&quot;language-text&quot;&gt;Node Package Manager&lt;/code&gt; 의 준말이다. 근데 여기서 Package란 뭘 뜻하는 걸까?  &lt;/p&gt;
+&lt;h3&gt;2.&lt;/h3&gt;
+&lt;p&gt;패키지는 공개적으로 사용할 수 있는 코드다. 일반적으로 애플리케이션에 특정 기능들을 추가할 수 있도록 미리 누군가에 의해 만들어진 코드 파일이라고 생각하면 된다. Node.js에서의 패키지는 &lt;code class=&quot;language-text&quot;&gt;module&lt;/code&gt;에 필요한 파일들로 구성되어 있다. 그리고 모듈이란 프로젝트에 추가할 수 있는 &lt;code class=&quot;language-text&quot;&gt;JavaScript Libraries&lt;/code&gt;를 의미한다.  &lt;/p&gt;
+&lt;p&gt;결론적으로 npm은 Node.js 환경에서 자바스크립트 라이브러리를 모아두고, 설치와 관리를 돕는 프로그램 정도로 이해하면 될 것 같다. npm을 통해 자신이 작성한 패키지를 공개할 수도 있고, 필요한 패키지를 검색하여 사용할 수도 있는 것이다.&lt;/p&gt;
+&lt;h3&gt;3.&lt;/h3&gt;
+&lt;p&gt;기본적인 npm 사용법에 대해서 알아보자. npm을 사용하기 위해서는 당연하게도 &lt;code class=&quot;language-text&quot;&gt;Node.js&lt;/code&gt;와 npm 설치가 필요하다. 본인의 컴퓨터에 이미 설치가 되어있는지 여부를 확인하고자 한다면,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nodejs&quot;&gt;&lt;pre class=&quot;language-nodejs&quot;&gt;&lt;code class=&quot;language-nodejs&quot;&gt;node -v
+npm -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;를 통해 버전 정보를 확인해보면 된다.  &lt;/p&gt;
+&lt;p&gt;패키지를 설치하기 위해서는,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nodejs&quot;&gt;&lt;pre class=&quot;language-nodejs&quot;&gt;&lt;code class=&quot;language-nodejs&quot;&gt;npm install &amp;#39;패키지 이름&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 npm install 명령어 뒤에 설치할 패키지 이름을 지정하면 된다.  &lt;/p&gt;
+&lt;p&gt;npm을 사용하다 보면 &lt;code class=&quot;language-text&quot;&gt;npm install -g &amp;#39;패키지 이름&amp;#39;&lt;/code&gt; 처럼 명령어 사이에 &lt;code class=&quot;language-text&quot;&gt;-g&lt;/code&gt; 옵션을 추가하는 경우가 있는데, 이는 &lt;strong&gt;패키지의 사용범위&lt;/strong&gt;를 나타내는 옵션이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;지역(local) 설치&lt;br&gt;
+: 옵션을 별도로 지정하지 않으면 지역으로 설치되며, 프로젝트 루트 디렉토리에 &lt;code class=&quot;language-text&quot;&gt;node_modules&lt;/code&gt; 디렉토리가 자동 생성되고 그 안에 패키지가 설치된다. 지역 설치된 패키지는 &lt;strong&gt;해당 프로젝트 내에서만&lt;/strong&gt; 사용할 수 있다.&lt;/li&gt;
+&lt;li&gt;전역(global) 설치&lt;br&gt;
+: &lt;code class=&quot;language-text&quot;&gt;-g&lt;/code&gt; 옵션을 지정하여 전역에 설치된 패키지는 &lt;strong&gt;모든 프로젝트가 공통으로&lt;/strong&gt; 사용할 수 있다. 윈도우의 경우 &lt;code class=&quot;language-text&quot;&gt;c:\Users\%USERNAME%\AppData\Roaming\npm\node_modules&lt;/code&gt; 디렉토리에 전역 패키지가 설치된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.&lt;/h3&gt;
+&lt;p&gt;패키지가 npm 레지스트리에 추가되기 위해서는 패키지의 설명이 담긴 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; 파일이 필수적으로 포함되어야 한다. 특히 패키지의 &lt;strong&gt;name&lt;/strong&gt;과 &lt;strong&gt;version&lt;/strong&gt; 정보가 필수적이다.  &lt;/p&gt;
+&lt;p&gt; 또한 Node.js의 패키지는 빈번하게 업데이트된다. 따라서 프로젝트에서 이를 일괄적으로 관리할 필요가 있다. 위에서 언급했던 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; 파일이 그러한 역할을 수행한다. &lt;/p&gt;
+&lt;p&gt;패키지를 설치하면 &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; - &lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;에 패키지의 이름과 버전이 기록된다.&lt;/p&gt;
+&lt;h3&gt;5.&lt;/h3&gt;
+&lt;p&gt;자주 사용하는 &lt;code class=&quot;language-text&quot;&gt;npm 명령어&lt;/code&gt;로는,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nodejs&quot;&gt;&lt;pre class=&quot;language-nodejs&quot;&gt;&lt;code class=&quot;language-nodejs&quot;&gt;// package.json 생성 (프로젝트에 대한 여러 가지 정보를 입력하도록 요구받는다)
+npm init
+
+// 기본 설정값으로 package.json 생성
+npm init -y
+
+// 패키지 제거
+npm uninstall 패키지 이름
+
+// 패키지 업데이트
+npm update 패키지 이름
+
+// 패키지 Docs URL로 연결
+npm docs 패키지 이름
+
+// 패키지 정보 확인
+npm view 패키지 이름
+
+// 전역 패키지 설치 폴더 확인
+npm root -g&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;등이 있다.&lt;/p&gt;
+&lt;h4&gt;참고&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.npmjs.com/&quot;&gt;npm Docs&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://poiemaweb.com/&quot;&gt;Poiemaweb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Gatsby로 Github 블로그 만들기]]></title><description><![CDATA[…]]></description><link>https://42kim.github.io/tutorial/gatsby-tutorial/</link><guid isPermaLink="false">https://42kim.github.io/tutorial/gatsby-tutorial/</guid><pubDate>Tue, 20 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;0.&lt;/h3&gt;
 &lt;p&gt;중구난방으로 보고 듣고 읽는 것들을 조금이라도 붙잡아두기 위해 제대로 된 기록의 필요성을 느낀다. 어디에 기록해야할지, 시작부터 선택의 기로에 놓였다. 결론적으로는 블로그 글 하나 쓰는 데도 커밋과 푸시를 반복해야하는 귀찮음보다 깃허브와 외부 블로그를 이원화하여 관리하는 것이 더 귀찮을 것 같았다. 그리고 기왕이면 나의 산물(?)들을 한 곳에서 모아보면 더 뿌듯할 것만 같다는 판단 아래 이래 저래 검색해보다 Github 블로그 용으로 많이 쓰인다는 Gatsby를 골랐다. 근데 Gatsby가 도대체 뭐지?&lt;/p&gt;
 &lt;h3&gt;1.&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.com/docs/&quot;&gt;Gatsby Documentation&lt;/a&gt;을 읽어봤다. 영어다. 설명에 따르면,&lt;/p&gt;

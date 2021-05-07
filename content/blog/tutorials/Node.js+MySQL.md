@@ -122,3 +122,12 @@ DELETE FROM [테이블명] WHERE [칼럼명]='값'					 // 특정 값을 가진 
 ```
 
 **주의!**  UPDATE나 DELETE를 할 때는 **WHERE**를 절대 절대 빠트려서는 안된다. 전체 데이터가 수정될 위험이 있다.
+
+
+
+#### 참고
++ [npm-mysql](https://www.npmjs.com/package/mysql)  
+
++ [MySQL DOCUMENTATION](https://dev.mysql.com/doc/)  
+
++ [Preventing SQL injection in Node.js (and other vulnerabilities)](https://blog.sqreen.com/preventing-sql-injection-in-node-js-and-other-vulnerabilities/)

@@ -1,6 +1,6 @@
 ---
 title: "[Passport.js] 공식 문서 읽기"
-date: "2021-05-5"
+date: "2021-05-05"
 tags: ["tutorial", "passport", "authentication", "인증", "express", "nodejs"]
 ---
 # [ Passport.js 공식 문서 읽기 ]

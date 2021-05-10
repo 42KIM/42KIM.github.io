@@ -1,10 +1,8 @@
 ---
-title: "[JavaScript] 함수"
+title: "[JavaScript Function] 함수"
 date: "2021-05-04"
 tags: ["JavaScript", "자바스크립트", "함수", "Function"]
 ---
-# [ 자바스크립트의 함수, Function ]
-
 #### 함수의 동작 순서
 
 1) 함수를 호출하면 현재의 실행 흐름을 중단하고 호출된 함수로 실행 흐름을 옮긴다.

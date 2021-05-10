@@ -3,8 +3,6 @@ title: "Node.js + MySQL"
 date: "2021-05-07"
 tags: ["tutorial", "nodejs", "mysql", "express"]
 ---
-# Node.js 더하기 MySQL
-
 프로젝트에서 회원가입 기능을 구현하는 단계에 돌입했다. 신규 유저로부터 입력받은 회원정보를 보관하고 관리하기 위해 ```MySQL```을 ```Node.js```에 연동해야 했다. 이 과정을 간단하게 설명하고, 익숙치 않은 SQL 문을 기억해두기 위해 자주 사용하는 내용을 정리해둔다.
 
 

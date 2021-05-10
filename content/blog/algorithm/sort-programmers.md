@@ -1,10 +1,8 @@
 ---
-title: "[programmers] 가장 큰 수"
+title: "[programmers] 정렬 - 가장 큰 수"
 date: "2021-04-24"
 tags: ["algorithm", "programmers", "코딩테스트"]
 ---
-# [ 정렬 - 가장 큰 수 ]
-
 [프로그래머스 Level 2 정렬 문제](https://programmers.co.kr/learn/courses/30/lessons/42746)
 
 #### 문제 설명

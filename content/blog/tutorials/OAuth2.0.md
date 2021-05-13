@@ -68,7 +68,7 @@ B쇼핑몰이 Google Authorizaion Server에 Access Token을 요청하면, Google
 
 B쇼핑몰은 Google의 Authorization Server로부터 발급받은 Access Token을 가지고 이제는 Google의 Resource Server에 철수의 정보를 요청해야 한다.
 
-이제 Google이 정해놓은 요청 방식에 따라 Access Token을 전송하면, Google은 scope를 통해 사용하기로 약속한 철수의 정보들을 B쇼핑몰에 응답해주는 것이다.
+이제 Google이 정해놓은 API 사용을 위한 요청 방식에 맞게 Access Token을 전송하면, Google은 scope를 통해 사용하기로 약속한 철수의 정보들을 B쇼핑몰에 응답해주는 것이다.
 
 
 

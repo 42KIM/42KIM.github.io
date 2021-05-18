@@ -14,7 +14,6 @@ $ npm install ejs
 ```
 먼저 npm을 통해 ejs를 설치하고 express에서 ejs를 require 했다면, ```app.set()```을 사용해
 
-+ 앱의 ```views```로 사용될 폴더의 디렉토리 (폴더명 views)
 + ```view engine```으로 사용할 템플릿 엔진 (ejs)
 
 을 세팅해줘야 한다.
@@ -22,7 +21,6 @@ $ npm install ejs
 ```javascript
 let ejs = require('ejs');
 
-app.set('views', __dirname + 'views');
 app.set('view engine', 'ejs');
 ```
 

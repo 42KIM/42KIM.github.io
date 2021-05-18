@@ -1,7 +1,7 @@
 ---
-title: "[JavaScript Function] 함수"
+title: "[JavaScript] Function"
 date: "2021-05-04"
-tags: ["JavaScript", "자바스크립트", "함수", "Function"]
+tags: ["JavaScript"]
 ---
 #### 함수의 동작 순서
 

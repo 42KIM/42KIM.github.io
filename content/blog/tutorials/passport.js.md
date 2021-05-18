@@ -1,7 +1,7 @@
 ---
 title: "[Passport.js] 공식 문서 읽기"
 date: "2021-05-05"
-tags: ["tutorial", "passport", "authentication", "인증", "express", "nodejs"]
+tags: ["tutorial", "passport", "nodejs"]
 ---
 ```Passport```는 '인증(authentication)'이라는 단일 목적을 위해 고안된 Node middleware이다. 모던 웹 애플리케이션에는 다양한 형태의 인증 방식이 존재한다. Passport는 각 애플리케이션의 목적에 맞게, 다양한 ```Strategy```라는 인증 메커니즘을 모듈로 패키지화 해놓았다. 덕분에 우리는 만들고자하는 애플리케이션에 맞는 strategy를 골라 사용할 수 있게 된 것이다. 한마디로, Passport는 웹 애플리케이션을 만드는 과정에서 사용자 인증을 간편하게 구현할 수 있도록 돕는 미들웨어인 것이다.
 

@@ -1,7 +1,7 @@
 ---
 title: "npm이 뭐지?"
 date: "2021-04-22"
-tags: ["tutorial", "nodejs", "npm"]
+tags: ["tutorial", "nodejs"]
 ---
 ### 0.
 

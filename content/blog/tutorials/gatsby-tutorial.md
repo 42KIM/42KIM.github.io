@@ -1,5 +1,5 @@
 ---
-title: "Gatsby로 Github 블로그 만들기"
+title: "[Docs 읽기] Gatsby로 Github 블로그 만들기"
 date: "2021-04-20"
 tags: ["tutorial", "gatsby"]
 ---

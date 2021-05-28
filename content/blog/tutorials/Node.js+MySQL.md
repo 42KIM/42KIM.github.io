@@ -1,5 +1,5 @@
 ---
-title: "Node.js + MySQL"
+title: "[Docs 읽기] Node.js + MySQL"
 date: "2021-05-07"
 tags: ["tutorial", "nodejs", "mysql"]
 ---

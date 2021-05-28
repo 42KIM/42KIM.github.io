@@ -1,5 +1,5 @@
 ---
-title: "EJS 템플릿 엔진, 초간단 사용법"
+title: "[Docs 읽기] EJS 초간단 사용법"
 date: "2021-05-17"
 tags: ["tutorial", "ejs"]
 ---

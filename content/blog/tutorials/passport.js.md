@@ -1,5 +1,5 @@
 ---
-title: "[Passport.js] 공식 문서 읽기"
+title: "[Docs 읽기] Passport.js"
 date: "2021-05-05"
 tags: ["tutorial", "passport", "nodejs"]
 ---

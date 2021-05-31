@@ -92,8 +92,8 @@ let promise = new Promise((resolve, reject) => {
 
 #### 참고
 
-[모던 JavaScript 튜토리얼](https://ko.javascript.info/)
+[모던 JavaScript 튜토리얼](https://ko.javascript.info/)  
 
-[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+[MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)  
 
 모던 자바스크립트 Deep Dive | 위키북스 | 이웅모

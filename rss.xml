@@ -1,4 +1,152 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[42Log]]></title><description><![CDATA[보고 듣고 읽은 것들의 파편을 붙잡아 두고자]]></description><link>https://42kim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 01 Jun 2021 07:38:35 GMT</lastBuildDate><item><title><![CDATA[[HTTP] Cookie와 Session]]></title><description><![CDATA[로그인 유저 관리 기능을 구현하기 위해 웹 애플리케이션에서 유저 인증을 어떻게 확인하여 관리하는지에 대해 알아보려고 한다.  는  프로토콜이다. HTTP 프로토콜은 이전 ‘request’와 ‘response…]]></description><link>https://42kim.github.io/TIL/http_cookie&amp;session/</link><guid isPermaLink="false">https://42kim.github.io/TIL/http_cookie&amp;session/</guid><pubDate>Tue, 01 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;로그인 유저 관리 기능을 구현하기 위해 웹 애플리케이션에서 유저 인증을 어떻게 확인하여 관리하는지에 대해 알아보려고 한다. &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[42Log]]></title><description><![CDATA[보고 듣고 읽은 것들의 파편을 붙잡아 두고자]]></description><link>https://42kim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Jun 2021 13:11:59 GMT</lastBuildDate><item><title><![CDATA[[JavaScript] 원시 값과 객체의 복사]]></title><description><![CDATA[…]]></description><link>https://42kim.github.io/TIL/js_objecttype/</link><guid isPermaLink="false">https://42kim.github.io/TIL/js_objecttype/</guid><pubDate>Sat, 05 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;알고리즘 문제를 풀 때 종종 배열을 복사해서 사용해야 하는 경우가 발생한다. 이때 배열을 제대로 복사하지 못하여 원본 배열까지 수정되는 바람에 정답을 한참 동안 못 구한 적이 있다. 자바스크립트의 복사에 대해 제대로 이해하고 넘어가자.&lt;/p&gt;
+&lt;h4&gt;원시 타입과 객체 타입&lt;/h4&gt;
+&lt;p&gt;자바스크립트의 7가지 데이터 타입(숫자, 문자열, 불리언, null, undeifined, 심벌, 객체 타입)은 크게 원시 타입과 객체 타입으로 나뉜다. 두 타입의 주요 차이는 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;원시 값은 변경 불가능한 값(immutable value)이다. 반면 객체 타입의 값은 변경 가능한 값(mutable value)이다.&lt;/li&gt;
+&lt;li&gt;원시 값을 변수에 할당하면 변수(확보된 메모리 공간)에는 &lt;strong&gt;실제 값&lt;/strong&gt;이 저장된다. 반면 객체를 변수에 할당하면 변수에는 &lt;strong&gt;참조 값&lt;/strong&gt;이 저장된다.&lt;/li&gt;
+&lt;li&gt;원시 값을 갖는 변수를 다른 변수에 할당하면 원본의 원시 값이 복사되어 전달된다. 이를 값에 의한 전달(pass by value)라고한다. 반면 객체를 가리키는 변수를 다른 변수에 할당하면 원본의 참조 값이 복사되어 전달된다.(pass by reference)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;원시 값의 불변성&lt;/h4&gt;
+&lt;p&gt;원시 값이 변경 불가능하다는 뜻은 변수에 새로운 값을 재할당 할 수 없다는 의미가 아니다. 최초에 원시 값을 저장하기 위해 확보한 메모리 공간에 들어있는 값을 변경할 수 없다는 의미이다. 만약 원시 값이 담긴 변수에 새로운 값을 할당하는 경우, 새로운 값을 담을 새로운 메모리 공간을 확보해야 한다. 따라서 변수가 가리키던 메모리의 주소도 바뀌게 된다. 반대로 말하면 원시 값을 할당한 변수는 재할당 이외에 변수 값을 변경할 수 있는 방법이 없는 것이다. 이러한 값의 특성을 &lt;strong&gt;불변성(immutability)&lt;/strong&gt;라고 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;원시 타입인 문자열을 생각해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; string &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;hello&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;H&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;// &apos;hello&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;값을 재할당 하지 않고는 원래의 값을 변경할 수 없다. 원시 값의 불변성 때문이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;원시 값의 복사&lt;/h4&gt;
+&lt;p&gt;원시 값이 담긴 변수를 복사하면 다음과 같이 동작한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; copy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; number&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;number&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;// 100&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;copy&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;token comment&quot;&gt;// 100&lt;/span&gt;
+
+number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;number&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;	&lt;span class=&quot;token comment&quot;&gt;// 200&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;copy&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;		&lt;span class=&quot;token comment&quot;&gt;// 100&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이때 중요한 점은 number에 담긴 100이라는 값과 copy에 담긴 100이라는 값은 서로 다른 메모리 공간에 저장된 별개의 값이라는 것이다. 따라서 number 변수에 새로운 값을 재할당 하더라도 copy 변수에는 어떠한 영향도 주지 않는다. 이는 원시 값은 &lt;strong&gt;값에 의한 전달&lt;/strong&gt;이 되기 때문이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; copy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; number&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// number라는 식별자가 0x000000F2라는 메모리 공간을 확보한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 100이라는 값이 0x000000F2 라는 메모리 공간에 저장된다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// copy라는 식별자는 0x00001332라는 새로운 메모리 공간을 확보한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 0x00001332라는 메모리 주소에 100이라는 값이 저장된다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;변수는 식별자이다. 식별자는 메모리 주소를 통해 메모리 공간에 저장된 값에 접근한다. 따라서 엄밀히 말하면 원시 값도 변수에 값 그 자체가 아니라 메모리 주소를 전달하는 것이다. 다만, 전달된 메모리 주소를 통해 메모리 공간에 접근하면 그곳에 바로 값이 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;참조 값이 전달되는, 변경 가능한 값 “객체”&lt;/h4&gt;
+&lt;p&gt;바로 앞의 설명처럼 원시 값은 변수가 기억하는 메모리 주소를 따라가면 바로 값에 도달할 수 있다. &lt;/p&gt;
+&lt;p&gt;그러나 객체는 다르다. 객체를 할당한 변수가 기억하는 메모리 주소를 따라가면 객체의 값이 있는 것이 아니라, &lt;strong&gt;참조 값(reference value)&lt;/strong&gt;이 있다. 다시 이 참조 값을 따라가면 비로소 본래의 객체 값이 저장된 메모리 공간이 있다. 즉 참조 값은 생성된 객체가 저장된 메모리 공간의 주소인 것이고, 변수는 ‘메모리 공간의 주소가 저장된 메모리 주소’를 기억하는 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Kim&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// person이라는 식별자가 0x000000F2라는 주소의 메모리 공간을 확보한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// {name: &quot;Kim&quot;} 이라는 객체가 0x00001332 라는 새로운 메모리 공간에 생성된다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 0x000000F2 메모리 주소에 0x00001332라는 메모리 주소(= 참조 값)가 저장된다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// person이 기억하는 메모리 주소 0x000000F2를 따라가면, 참조 값 0x00001332가 있고&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 다시 참조 값 0x00001332를 따라가면 해당 메모리 공간에는 {name: &quot;Kim&quot;}이라는 객체가 있다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;원시 값은 변경 불가능한 값이라서 변수의 값을 변경하려면 재할당이라는 방법뿐이라고 했다. 그러나 객체는 변경 가능한 값이기 때문에, 재할당 없이도 프로퍼틸을 추가/삭제하는 것처럼 변수에 할당된 객체를 직접 변경할 수 있다. &lt;/p&gt;
+&lt;p&gt;객체를 할당한 변수는 객체 그 자체가 아니라, 참조 값을 기억한다고 했다. 따라서 객체 자체에서 값이 변경되더라도 그 객체를 가리키고 있는 참조 값은 변하지 않는다. 변수는 참조 값을 기억하고 있기 때문에, 재할당 없이도 변수가 가리키는 객체의 값이 바뀔 수 있는 것이다.&lt;/p&gt;
+&lt;h4&gt;객체의 복사&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;결국 복사할 때 문제가 되는 것은 객체다. 객체는 변경 가능한 값(mutable value)이면서 참조 값이 전달(pass by reference)되기 때문이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;위에서 객체가 어떤 식으로 참조되는 지를 살펴봤다. 따라서 객체가 할당된 변수를 복사하면, 객체 그 자체 값이 복사되는 것이 아니라 &lt;strong&gt;참조 값&lt;/strong&gt;이 복사되는 것을 할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Kim&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; copy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; person&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// copy라는 새로운 변수는 0x00000524 라는 새로운 메모리 주소를 가리킨다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 그 메모리 주소에는 {name: &quot;Kim&quot;} 객체가 바로 담기는 것이 아니라, &lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 객체를 담고 있는 메모리 주소를 가리키는 주소인 참조 값 0x00001332가 담긴다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// person과 copy는 각각 0x000000F2와 0x000000524라는 메모리 주소를 기억하지만&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 두 메모리 주소는 0x00001332 라는 동일한 참조 값을 갖는다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 따라서 person과 copy는 궁극적으로 0x00001332라는 참조 값이 가리키는 동일한 {name: &quot;Kim&quot;} 객체를 가리킨다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;따라서 복사 후 원본 값을 변경하면 새로운 메모리 주소를 가리키는 원시 값과 다르게 작동한다. 이를 일치 연산자로 확인해보면 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 원시 타입&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; numCopy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; number&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+number &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; numCopy	&lt;span class=&quot;token comment&quot;&gt;// true;&lt;/span&gt;
+
+number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+number &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; numCopy	&lt;span class=&quot;token comment&quot;&gt;// false&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 객체 타입&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; objCopy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+obj &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; objCopy		&lt;span class=&quot;token comment&quot;&gt;// true;&lt;/span&gt;
+
+obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Lee&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+obj &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; objCopy		&lt;span class=&quot;token comment&quot;&gt;// true;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;원시 값의 비교와 객체의 비교&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;원시 값을 할당한 변수를 비교하면 원시 값을 비교한다.&lt;/p&gt;
+&lt;p&gt;반면 객체를 할당한 변수를 비교하면 참조 값을 비교한다.&lt;/p&gt;
+&lt;p&gt;다음 문제를 이해해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; obj1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; obj2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Kim&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+obj1 &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; obj2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;				
+&lt;span class=&quot;token comment&quot;&gt;// false; &lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 내용은 같지만 당연히 서로 다른 메모리에 저장된 별개의 객체다.&lt;/span&gt;
+
+obj1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; obj2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;	
+&lt;span class=&quot;token comment&quot;&gt;// true;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// obj1.name과 obj2.name은 둘다 &quot;Kim&quot;이라는 문자열로 평가되는 표현식이다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 원시 값을 비교할 땐 값 자체를 비교한다고 했으니 true가 된다.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이처럼 객체는 &lt;strong&gt;여러 개의 식별자가 하나의 객체를 공유&lt;/strong&gt;할 수 있다. 내가 알고리즘 문제를 풀면서 실수가 발생했던 것도 바로 이 이유 때문이었다. 한쪽 변수에서 객체를 변경할 때, 참조 값이 동일한 다른 변수가 가리키고 있는 객체도 수정되었기 때문이다. 헷갈리게 왜 이렇게 만들었을까?&lt;/p&gt;
+&lt;p&gt;결국 &lt;strong&gt;효율성&lt;/strong&gt;과 &lt;strong&gt;성능&lt;/strong&gt; 때문이다.&lt;/p&gt;
+&lt;p&gt;원시 값처럼 객체를 복사할 때마다 같은 값을 새롭게 생성한다면 나와 같은 실수는 발생하지 않을 것이다. 그러나 객체는 크기가 매우 클 수도 있고, 크기도 일정하지 않으며, 객체의 프로퍼티 값으로 또 다른 객체를 가질 수도 있다. 즉 복사해서 생성하는 데 메모리의 비용이 클 수 있다는 뜻이다. 메모리를 효율적으로 사용하고 비용을 절약하여 성능을 향상시키기 위해 객체는 변경 가능한 값으로 설계되어 있는 것이다.&lt;/p&gt;
+&lt;p&gt;다음으로는 ‘얕은 복사’와 ‘깊은 복사’에 대해 알아볼 예정이다.&lt;/p&gt;
+&lt;h4&gt;참고&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.javascript.info/object-copy&quot;&gt;참조에 의한 객체 복사&lt;/a&gt;&lt;br&gt;
+원시 값과 객체의 비교 | 모던 자바스크립트 Deep Dive | 위키북스&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[HTML/CSS] <link>와 @import]]></title><description><![CDATA[프로젝트에서 페이지 별 CSS 파일에 공통 요소를 적용하기 위해 를 사용해 default.css 파일을 불러오려고 했다. 그러다 궁금한 점이 생겼다. a.css 파일 안에 b.css 파일을 import 하는 방식과, HTML…]]></description><link>https://42kim.github.io/TIL/css_import/</link><guid isPermaLink="false">https://42kim.github.io/TIL/css_import/</guid><pubDate>Fri, 04 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로젝트에서 페이지 별 CSS 파일에 공통 요소를 적용하기 위해 &lt;code class=&quot;language-text&quot;&gt;@import&lt;/code&gt;를 사용해 default.css 파일을 불러오려고 했다. 그러다 궁금한 점이 생겼다. a.css 파일 안에 b.css 파일을 import 하는 방식과, HTML 파일에 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; 태그를 사용하여  a.css 파일과 b.css 파일을 모두 불러오는 방식의 차이는 뭘까? 조금 오래된 글이긴 하지만 각각의 차이를 설명한 글이 있어서 읽고 정리해본다. &lt;a href=&quot;https://www.stevesouders.com/blog/2009/04/09/dont-use-import/&quot;&gt;👉원문 보기&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;결론을 먼저 말하자면, &lt;code class=&quot;language-text&quot;&gt;@import&lt;/code&gt;를 사용하지 말고 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;link&amp;gt;&lt;/code&gt; 태그를 사용하라는 것. 그 이유를 살펴보자.&lt;/p&gt;
+&lt;h4&gt;HTML 파일에 CSS 파일을 불러오는 방법&lt;/h4&gt;
+&lt;p&gt;먼저 HTML 파일에 CSS 파일을 불러오는 방법은 크게 두 가지로 나뉜다.&lt;/p&gt;
+&lt;p&gt;첫 번째는 HTML link 태그를 사용하는 방법,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;stylesheet&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;a.css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;두 번째는 HTML style 태그 내부에 @import를 사용하는 방법이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;token url&quot;&gt;&lt;span class=&quot;token function&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string url&quot;&gt;&apos;a.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 두 가지 방법을 전제로 link 태그와 @import를 다양한 방식으로 조합하여 사용할 때의 차이점을 살펴본다.&lt;/p&gt;
+&lt;h4&gt;[1] @import &amp;#x26; @import&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;token url&quot;&gt;&lt;span class=&quot;token function&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string url&quot;&gt;&apos;a.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;token url&quot;&gt;&lt;span class=&quot;token function&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string url&quot;&gt;&apos;b.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;#x3C;style&gt; 태그 내부에 @import를 각각 사용하여 a.css와 b.css를 불러오는 방식이다. 이 경우, 페이지가 요청되면 두 css 파일은 병렬적(parallel)으로 다운로드 된다. 즉 성능적으로 손해를 보지 않는다.&lt;/p&gt;
+&lt;h4&gt;[2] &amp;#x3C;link&gt; &amp;#x26; @import&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;stylesheet&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;text/css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;a.css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@import&lt;/span&gt; &lt;span class=&quot;token url&quot;&gt;&lt;span class=&quot;token function&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string url&quot;&gt;&apos;b.css&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;#x3C;link&gt; 태그와 @import를 섞어서 쓰는 경우, 두 파일은 순차적(sequentially)으로 다운로드 된다. (원문의 테스트는 IE 6, 7, 8을 기준으로 진행되었다) 따라서 두 파일을 동시에 다운로드 하는 [1]번 방식보다 시간적으로 손해를 보게 된다. &lt;/p&gt;
+&lt;h4&gt;[3] @import in &amp;#x3C;link&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- in the HTML document --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;stylesheet&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;text/css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;a.css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- in a.css --&gt;&lt;/span&gt;
+@import url(&apos;b.css&apos;);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이번엔 내가 시도하려던 방식이다. link 태그로 a.css 파일을 불러오는데 a.css 파일 내부에 @import를 사용해 b.css 파일을 포함시킨 방식이다.&lt;/p&gt;
+&lt;p&gt;이 경우 [2]번과 마찬가지로 파일을 순차적으로 다운로드 한다. (모든 브라우저에서 그렇다고 한다..) 사실 논리적으로 생각해보면 당연한 일이다. 브라우저는 a.css를 우선 다운로드 한 뒤, parse 하는 과정에서 a.css가 b.css를 import 한다는 사실을 알게되어 그제야 b.css를 다운받기 시작할 테니까.&lt;/p&gt;
+&lt;p&gt;나는 가장 성능이 안 좋은 방식을 사용하려고 한 것이다.&lt;/p&gt;
+&lt;h4&gt;[4] &amp;#x3C;link&gt; &amp;#x26; &amp;#x3C;link&gt;&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;stylesheet&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;text/css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;a.css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;stylesheet&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;text/css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;b.css&lt;span class=&quot;token punctuation&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;#x3C;link&gt; 태그를 여러 개 사용하여 각 파일을 불러오는 방식이다.  &amp;#x3C;link&gt; 태그를 사용하면 모든 브라우저에서 파일을 병렬적으로 다운로드 한다. 또한 &amp;#x3C;link&gt; 태그를 사용하면 파일의 다운로드 순서를 보장받을 수 있다. ([1]번처럼 다수의 @import를 사용하는 경우 브라우저 및 상황에따라 다운로드 순서가 보장되지 않는 경우도 있다고 한다)&lt;/p&gt;
+&lt;h4&gt;결론&lt;/h4&gt;
+&lt;p&gt;@import를 사용하면 경우에 따라 시간적으로 손해를 볼 여지가 있다. 특히 IE에서는 다운로드 순서를 보장 받지 못하여, &amp;#x3C;link&gt;와 @import를 섞어 쓰면 다운로드 시간이 오래 걸리는 파일을 다운받는 동안 다른 파일들이 블록되어 더 많은 시간이 소비되는 경우도 발생한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#x3C;link&gt;&lt;/strong&gt; 를 사용하자. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[HTTP] Cookie와 Session]]></title><description><![CDATA[로그인 유저 관리 기능을 구현하기 위해 웹 애플리케이션에서 유저 인증을 어떻게 확인하여 관리하는지에 대해 알아보려고 한다.  는  프로토콜이다. HTTP 프로토콜은 이전 ‘request’와 ‘response…]]></description><link>https://42kim.github.io/TIL/http_cookie&amp;session/</link><guid isPermaLink="false">https://42kim.github.io/TIL/http_cookie&amp;session/</guid><pubDate>Tue, 01 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;로그인 유저 관리 기능을 구현하기 위해 웹 애플리케이션에서 유저 인증을 어떻게 확인하여 관리하는지에 대해 알아보려고 한다. &lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;Stateless&lt;/code&gt; 프로토콜이다. HTTP 프로토콜은 이전 ‘request’와 ‘response’의 상태를 기억하지 않는다는 뜻이다. 따라서 방금 전에 사용자가 인증을 통과하여 로그인을 했다고 하더라도, 웹 페이지는 그 사실을 알 수 없다. 매번 다시 로그인할 필요 없이, 해당 사용자가 인증되었다는 상태를 관리하기 위해 사용되는 기술이 &lt;code class=&quot;language-text&quot;&gt;cookie&lt;/code&gt;다.&lt;/p&gt;
 &lt;h4&gt;쿠키(cookie)&lt;/h4&gt;
 &lt;p&gt;쿠키는 HTTP request와 response에 기억해야할 ‘정보’를 심는 기술이다. 쿠키의 작동 원리는 다음의 순서를 따른다.&lt;/p&gt;
@@ -13,10 +161,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;쿠키 생성 시 설정 가능한 속성들로는&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;쿠키의 만료 기한
+&lt;li&gt;쿠키의 만료 기한&lt;br&gt;
 웹 브라우저가 종료되면 쿠키도 사라지게 하거나 계속 유효하도록 설정할 수 있고, 쿠키가 일정 기간 동안만 유효하도록 설정할 수도 있다.&lt;/li&gt;
 &lt;li&gt;https를 통해 통신할 때만 쿠키를 전송하도록 설정할 수 있다.&lt;/li&gt;
-&lt;li&gt;쿠키의 scope
+&lt;li&gt;쿠키의 scope&lt;br&gt;
 특정 도메인이나 디렉토리에서만 쿠키가 활성화 되게끔 설정할 수 있다.&lt;/li&gt;
 &lt;li&gt;etc..&lt;/li&gt;
 &lt;/ul&gt;
@@ -36,7 +184,7 @@
 &lt;li&gt;브라우저는 쿠키를 보존하므로, 새로운 request가 발생할 때마다 서버는 클라이언트가 보내온 쿠키의 세션ID를 세션 저장소의 정보와 대조하여 사용자를 식별한다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;세션도 쿠키와 마찬가지로 유효 기간을 설정할 수 있다. 그러나 쿠키는 파일 형태로 저장되기 때문에 브라우저가 종료되어도 유효기간이 남아있다면 여전히 존재하는 반면, 세션은 서버의 메모리에 저장된다. 따라서 브라우저가 종료되면 유효기간이 남아있더라도 삭제가 된다는 차이가 있다.&lt;/p&gt;
-&lt;p&gt;이처럼 세션은 쿠키에 비해 보안적으로 낫다는 장점이 있지만 단점도 존재한다. 클라이언트에서 정보를 직접 제공해주는 쿠키와 달리 정보를 얻기 위해 서버를 거쳐야 한다는 점에서 속도의 차이가 발생하고, 사용자의 정보를 서버에 저장해야하기 때문에 많은 사용자가 서비스를 이용하는 경우 서버 자원의 소모가 크다.&lt;/p&gt;
+&lt;p&gt;이처럼 세션은 쿠키에 비해 보안적으로 낫다는 장점이 있지만 단점도 존재한다. 클라이언트에서 정보를 직접 제공해주는 쿠키와 달리 정보를 얻기 위해 서버를 거쳐야 한다는 점에서 속도의 차이가 발생하고, 사용자의 정보를 서버에 저장해야하기 때문에 많은 사용자가 서비스를 이용하는 경우 서버 자원의 소모가 크다. 그리고 세션ID를 탈취하여 서버에 전송하는 경우, 실제 인증된 사용자가 아님에도 세션 정보의 주인인 것처럼 행세할 수 있다는 보안 상의 문제도 여전히 존재한다.&lt;/p&gt;
 &lt;p&gt;이러한 쿠키와 세션의 한계를 극복하고자 최근에는 &lt;code class=&quot;language-text&quot;&gt;JWT(JSON Web Token)&lt;/code&gt;라는 기술이 주로 사용된다. To be continued..&lt;/p&gt;
 &lt;h4&gt;참고&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.opentutorials.org/course/3400&quot;&gt;Opentutorials.org | 세션과 인증&lt;/a&gt;&lt;br&gt;

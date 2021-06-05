@@ -1,5 +1,5 @@
 ---
-title: "[HTML/CSS] \<link>와 @import"
+title: "[HTML/CSS] <link>와 @import"
 date: "2021-06-04"
 tags: ["HTML", "CSS"]
 ---

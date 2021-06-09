@@ -1,3 +1,8 @@
+---
+title: "[JavaScript] 깊은 복사/얕은 복사"
+date: "2021-06-08"
+tags: ["JavaScript"]
+---
 #### 객체의 얕은 복사와 깊은 복사
 
 [이전 글](https://42kim.github.io/TIL/js_objecttype/)을 통해 자바스크립트에서 객체를 복사하면 어떤 일이 일어나는지에 대해서 확인했다. 객체가 할당된 변수를 새로운 변수에 할당하면, 객체 그 자체가 아니라 객체의 참조 값이 복사되기 때문에 결국 두 변수는 하나의 동일한 객체를 가리키게 된다는 것이다.
@@ -110,8 +115,5 @@ console.log(copyObj.address === person.address);	// true
 #### 참고
 
 [객체 복사, 병합과 Object.assign](https://ko.javascript.info/object-copy#ref-1073)  
-
 [Object.assign()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)  
-
 원시 값과 객체의 비교 | 모던 자바스크립트 Deep Dive | 위키북스
-

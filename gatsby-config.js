@@ -5,7 +5,7 @@ module.exports = {
     title: `42Log`,
     author: {
       name: `42KIM`,
-      summary: `Just a person trying to do something.`,
+      summary: `A person trying to create something.`,
     },
     description: `보고 듣고 읽은 것들의 파편을 붙잡아 두고자`,
     siteUrl: `https://42kim.github.io/`,

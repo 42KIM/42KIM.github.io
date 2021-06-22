@@ -1,6 +1,6 @@
 ---
 title: "[JavaScript] addEventListener의 이벤트 핸들러와 this"
-date: "2021-06-17"
+date: "2021-06-22"
 tags: ["JavaScript", "addEventLister"]
 ---
 프로젝트에서 ```addEventListener``` 메서드를 사용하면서 겪은 두 가지 문제와 이를 해결한 방법에 관한 글이다.

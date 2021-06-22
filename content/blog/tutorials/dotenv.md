@@ -1,6 +1,6 @@
 ---
 title: "[Docs 읽기] Dotenv, 환경 변수"
-date: "2021-06-22"
+date: "2021-06-17"
 tags: ["tutorial", "dotenv"]
 ---
 ```Dotenv```는 ```.env``` 파일에 설정한 key와 value를 ```process.env```에 할당해주는 모듈이다. 즉 원하는 변수와 값을 환경 변수로 사용할 수 있도록 대신 설정해주는 것이다. 프로젝트에서 서버와 DB를 연결할 때의 옵션(host, port, user, password 등)을 코드에 노출시키지 않기 위해 환경 변수로 관리했다.

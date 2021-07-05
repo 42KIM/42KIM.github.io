@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[42Log]]></title><description><![CDATA[보고 듣고 읽은 것들의 파편을 붙잡아 두고자]]></description><link>https://42kim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 22 Jun 2021 08:29:05 GMT</lastBuildDate><item><title><![CDATA[[JavaScript] addEventListener의 이벤트 핸들러와 this]]></title><description><![CDATA[프로젝트에서  메서드를 사용하면서 겪은 두 가지 문제와 이를 해결한 방법에 관한 글이다. 1 addEventListener…]]></description><link>https://42kim.github.io/TIL/js_addeventlistener/</link><guid isPermaLink="false">https://42kim.github.io/TIL/js_addeventlistener/</guid><pubDate>Tue, 22 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로젝트에서 &lt;code class=&quot;language-text&quot;&gt;addEventListener&lt;/code&gt; 메서드를 사용하면서 겪은 두 가지 문제와 이를 해결한 방법에 관한 글이다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[42Log]]></title><description><![CDATA[보고 듣고 읽은 것들의 파편을 붙잡아 두고자]]></description><link>https://42kim.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 05 Jul 2021 07:23:26 GMT</lastBuildDate><item><title><![CDATA[[HTML/CSS] textContent / innerText / innerHTML 차이]]></title><description><![CDATA[HTML element의 텍스트를 가져오거나, 또는 텍스트를 추가해야 하는 경우가 종종 생긴다. 이를 수행할 수 있는 몇 가지 방법이 있다. , , 의 차이점을 알아보고 무엇을 사용하는 것이 좋을지 알아보자. HTML…]]></description><link>https://42kim.github.io/TIL/html_textContent/</link><guid isPermaLink="false">https://42kim.github.io/TIL/html_textContent/</guid><pubDate>Mon, 05 Jul 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;HTML element의 텍스트를 가져오거나, 또는 텍스트를 추가해야 하는 경우가 종종 생긴다. 이를 수행할 수 있는 몇 가지 방법이 있다. &lt;code class=&quot;language-text&quot;&gt;textContent&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;innerText&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;innerHTML&lt;/code&gt;의 차이점을 알아보고 무엇을 사용하는 것이 좋을지 알아보자.&lt;/p&gt;
+&lt;p&gt;HTML이 다음과 같이 작성되었을 때, 각각 어떤 차이를 보일까.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    Do
+    you   see &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt; &lt;span class=&quot;token style-attr&quot;&gt;&lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token style language-css&quot;&gt;&lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;the difference?&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;innerHTML&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;div&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// Do&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// you   see &amp;lt;span style=&quot;display: none&quot;&gt;the difference?&amp;lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;innerHTML&lt;/code&gt;을 사용해 div 요소에 접근하면, div 태그 내부에 작성한 모든 내용을 토씨 하나 틀린 것 없이 그대로 가져온다. 해당 태그 내부에 작성된 ‘모든 HTML 마크업’을 문자열 형태로 긁어오는 것이다.&lt;/p&gt;
+&lt;p&gt;반대로 innerHTML을 사용해 요소에 내용을 설정할 때는 HTML이 파싱된 결과가 화면에 출력된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerHTML &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;lt;span style=&quot;color: red&quot;&gt;hello world&amp;lt;/span&gt;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 코드가 작성되었다면, 화면에는  &lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;color: red&quot;&gt;hello world&lt;/span&gt;  &lt;/p&gt;
+&lt;p&gt;가 출력되는 것이다.&lt;/p&gt;
+&lt;p&gt;이 말인 즉슨, innerHTML을 사용하는 동안 XSS 공격을 당할 경우 작성자가 원치 않는 HTML 마크업이 스크립트에 추가 또는 삭제될 수 있다는 위험성이 있다는 것을 의미한다.  &lt;/p&gt;
+&lt;p&gt;또한 HTML 파싱에 소요되는 비용이 성능에 영향을 끼친다.&lt;/p&gt;
+&lt;h3&gt;innerText&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;div&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;innerText&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// Do you see&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;innerText&lt;/code&gt;를 사용하여 div 요소에 접근하면, 브라우저에 출력되는 것과 동일한 결과물을 가져온다. 즉, 사용자에게 ‘보여지는 텍스트’ 값을 읽어오는 것이다. (사용자가 화면을 드래그하여 복사+붙여넣기 한 결과와 동일한 것)&lt;/p&gt;
+&lt;p&gt;임의의 줄바꿈과 3칸의 공백은 한 칸의 공백으로 처리되었고, display: none이 적용되어 화면에 보이지 않는 텍스트도 가져오지 않는다. 즉, innetText는 CSS까지 반영된 최종 렌더링 결과를 가져온다는 것을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;또한 innerText를 사용하여 값을 설정하는 경우에는 렌더링 된 최신 값을 계산하여 반영하기 위한 &lt;code class=&quot;language-text&quot;&gt;Reflow&lt;/code&gt;가 발생하게 되어 화면의 깜빡거림이 발생하게 되고, 당연히 성능도 그만큼 떨어질 수밖에 없는 것이다.&lt;br&gt;
+(과거 버전의 IE 브라우저에서는 textContent를 지원하지 않았기 때문에 innerText는 IE 브라우저에 적합하게 만들어졌다고 한다. 따라서 IE 환경에서는 innerText의 성능이 가장 좋다고 한다. 하지만 IE는 죽었어..)&lt;/p&gt;
+&lt;h3&gt;textContent&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; div &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;div&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;div&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;textContent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// Do&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// you   see the difference?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;textContent&lt;/code&gt;는 innerHTML과 innerText의 중간쯤이라고 보면 된다.&lt;/p&gt;
+&lt;p&gt;innerHTML과 마찬가지로 공백이나 줄바꿈을 작성된 상태 그대로, display가 none인 자식 태그의 내용도 가져오지만, 태그를 제외한 오로지 ‘텍스트’ 값만 골라서 가져오기 때문이다.&lt;/p&gt;
+&lt;p&gt;반면 innerHTML처럼 HTML로 분석해야 하거나, innerText처럼 렌더링 이후의 값을 계산하지 않기 때문에 셋 중에서 가장 성능이 좋다.&lt;/p&gt;
+&lt;p&gt;이처럼 각각의 특징을 고려하여&lt;br&gt;
+HTML 마크업 원본의 구성을 파악하고 싶다면 innerHTML,&lt;br&gt;
+화면에 렌더링 되는 텍스트만 확인하고 싶다면 innerText,&lt;br&gt;
+렌더링된 텍스트에 어떤 스타일이 적용되었는지를 확인하려면 textContent를 사용하는 식으로 상황에 맞게 사용하면 좋을 것 같다.&lt;/p&gt;
+&lt;h4&gt;참고&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Web/API/Node/textContent&quot;&gt;MDN Web Docs&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://betterprogramming.pub/whats-best-innertext-vs-innerhtml-vs-textcontent-903ebc43a3fc&quot;&gt;What’s Best: innerText vs. innerHTML vs. textContent&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[JavaScript] addEventListener의 이벤트 핸들러와 this]]></title><description><![CDATA[프로젝트에서  메서드를 사용하면서 겪은 두 가지 문제와 이를 해결한 방법에 관한 글이다. 1 addEventListener…]]></description><link>https://42kim.github.io/TIL/js_addeventlistener/</link><guid isPermaLink="false">https://42kim.github.io/TIL/js_addeventlistener/</guid><pubDate>Tue, 22 Jun 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로젝트에서 &lt;code class=&quot;language-text&quot;&gt;addEventListener&lt;/code&gt; 메서드를 사용하면서 겪은 두 가지 문제와 이를 해결한 방법에 관한 글이다.&lt;/p&gt;
 &lt;h4&gt;[1] addEventListener의 이벤트 핸들러에 인수 전달하기&lt;/h4&gt;
 &lt;p&gt;프로젝트에서 모달창 여러 개를 만들 일이 생겼다. 각기 다른 버튼을 클릭할 때마다 그에 해당하는 모달을 띄워줘야 했다. A버튼을 클릭하면 A모달이 떠야하고, B버튼을 클릭하면 B모달이 뜨는 식이다. 처음에는 버튼을 클릭했을 때 해당되는 모달을 띄워주는 함수를 각각 만들어 이벤트 핸들러로 등록했다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;open_A_modal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -698,8 +742,9 @@ check&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;c&lt;span cla
 
 console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이 코드는 메모리 11252KB, 시간 200ms 로 통과된다.&lt;/p&gt;
-&lt;p&gt;풀이에서 잘못된 부분이 있거나, 더 좋은 풀이가 있다면 적극적으로 제보 부탁드립니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[알고리즘] 섬나라 아일랜드 찾기]]></title><description><![CDATA[문제 N*N의 섬나라 지도가 격자판의 정보로 주어집니다. 각 섬은 1로 표시되어 상하좌우대각선으로 연결되어 있으며, 0은 바다입니다. 섬나라에 몇 개의 섬이 있는지 구하는 프로그램을 작성하시오.  입력설명 첫 번째 줄에 자연수 N(3<=N<=2…]]></description><link>https://42kim.github.io/algorithm/섬나라 아일랜드 찾기/</link><guid isPermaLink="false">https://42kim.github.io/algorithm/섬나라 아일랜드 찾기/</guid><pubDate>Tue, 18 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제&lt;/h3&gt;
-&lt;p&gt;N*N의 섬나라 지도가 격자판의 정보로 주어집니다. 각 섬은 1로 표시되어 &lt;strong&gt;상하좌우대각선&lt;/strong&gt;으로 연결되어 있으며, 0은 바다입니다. 섬나라에 몇 개의 섬이 있는지 구하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;p&gt;풀이에서 잘못된 부분이 있거나, 더 좋은 풀이가 있다면 적극적으로 제보 부탁드립니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[알고리즘] 섬 찾기 문제]]></title><description><![CDATA[문제 바다에 섬이 총 몇 개인지 구하는 문제. 육지는 1로 표시되고, 바다는 0으로 표시된다.  문제 풀이 과정 1 DFS 풀이 (재귀) 격자판을 순회하며 섬이 있는 좌표를 찾는다 => 이중 for…]]></description><link>https://42kim.github.io/algorithm/섬나라 아일랜드 찾기/</link><guid isPermaLink="false">https://42kim.github.io/algorithm/섬나라 아일랜드 찾기/</guid><pubDate>Tue, 18 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제&lt;/h3&gt;
+&lt;p&gt;바다에 섬이 총 몇 개인지 구하는 문제.&lt;br&gt;
+육지는 1로 표시되고, 바다는 0으로 표시된다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 471px; &quot;
@@ -729,23 +774,6 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;입력설명&lt;/strong&gt;&lt;br&gt;
-첫 번째 줄에 자연수 N(3&amp;#x3C;=N&amp;#x3C;=20)이 주어집니다.&lt;br&gt;
-두 번째 줄부터 격자판의 정보가 주어집니다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;출력 설명&lt;/strong&gt;&lt;br&gt;
-첫 번째 줄에 섬의 개수를 출력한다.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;입력예제&lt;/strong&gt;&lt;br&gt;
-1100010&lt;br&gt;
-0110110&lt;br&gt;
-0100000&lt;br&gt;
-0001011&lt;br&gt;
-1101100&lt;br&gt;
-1000100&lt;br&gt;
-1010100  &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;출력예제&lt;/strong&gt;&lt;br&gt;
-5&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h4&gt;문제 풀이 과정&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;[1] DFS 풀이 (재귀)&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -849,9 +877,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;특이사항&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;-DFS와 마찬가지로 &lt;code class=&quot;language-text&quot;&gt;answer++&lt;/code&gt;의 위치는 탐색 전, 후 둘 다 가능&lt;br&gt;
--방문한 좌표 체크는 &lt;strong&gt;꼭! Queue에 넣기 전에 해야한다!!&lt;/strong&gt; 뺄 때 체크를 하면 인접한 좌표가 중복체크 되기 때문이다.&lt;/p&gt;
-&lt;h4&gt;문제 제공&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4#&quot;&gt;인프런 | 자바스크립트 알고리즘 문제풀이(코딩테스트 대비)&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Docs 읽기] EJS 초간단 사용법]]></title><description><![CDATA[0. 프로젝트의 서버가 얼추 갖춰졌다. 동적 페이지 생성을 위해 템플릿 엔진을 사용하기로 했다. EJS (Embedded JavaScript templating)는 순수 자바스크립트를 사용하여 HTML…]]></description><link>https://42kim.github.io/tutorials/ejs/</link><guid isPermaLink="false">https://42kim.github.io/tutorials/ejs/</guid><pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;0.&lt;/h3&gt;
+-방문한 좌표 체크는 &lt;strong&gt;꼭! Queue에 넣기 전에 해야한다!!&lt;/strong&gt; 뺄 때 체크를 하면 인접한 좌표가 중복체크 되기 때문이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[Docs 읽기] EJS 초간단 사용법]]></title><description><![CDATA[0. 프로젝트의 서버가 얼추 갖춰졌다. 동적 페이지 생성을 위해 템플릿 엔진을 사용하기로 했다. EJS (Embedded JavaScript templating)는 순수 자바스크립트를 사용하여 HTML…]]></description><link>https://42kim.github.io/tutorials/ejs/</link><guid isPermaLink="false">https://42kim.github.io/tutorials/ejs/</guid><pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;0.&lt;/h3&gt;
 &lt;p&gt;프로젝트의 서버가 얼추 갖춰졌다. 동적 페이지 생성을 위해 템플릿 엔진을 사용하기로 했다.&lt;/p&gt;
 &lt;p&gt;EJS (Embedded JavaScript templating)는 순수 자바스크립트를 사용하여 HTML 마크업을 생성해주는 템플릿 언어이다. &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;$ npm install ejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;

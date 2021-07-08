@@ -5,7 +5,7 @@ tags: ["tutorial", "helmet"]
 ---
 ### Helmet 이란?
 
-```Helmet```은 다양한 HTTP header 설정을 통해 애플리케이션의 보안 강화를 도와주는 모듈이자, ```Expresss``` 프레임워크에서 호환되는 미들웨어이다.  
+```Helmet```은 다양한 HTTP header 설정을 통해 애플리케이션의 보안 강화를 도와주는 모듈이자, ```Expresss``` 프레임워크에서 호환되는 미들웨어 묶음이다.  
 
 #### 사용법
 
@@ -56,7 +56,7 @@ app.use(
 
 <span style="color:red">(각각에 대한 설명은 관련 내용 심화 학습 후 보강)</span>
 
-+ ```helmet.contentSecurityPolicy(options)``` 
++ ```helmet.contentSecurityPolicy(options)```  
   XSS 공격을 감지하고 일부 완화시켜주는 Content Security Policy(CSP) 헤더 설정
 
 + ```helmet.expectCt(options)```
@@ -83,7 +83,7 @@ app.use(
 
 #### Extras
 
-+ ```helmet.crossOriginEmbedderPolicy()``` 
++ ```helmet.crossOriginEmbedderPolicy()```  
   허가되지 않은 cross-origin 자원의 로드를 방지하는 Cross-Origin-Embedder-Policy(COEP) 헤더 설정
 + ```helmet.crossOriginOpenerPolicy()```
 + ```helmet.crossOriginResourcePolicy()```
@@ -94,6 +94,5 @@ app.use(
 #### 참고
 
 [helmet - npm](https://www.npmjs.com/package/helmet)  
-
 [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 

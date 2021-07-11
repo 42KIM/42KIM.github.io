@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] Function"
+title: "[JS] Function"
 date: "2021-05-04"
 tags: ["JavaScript"]
 ---

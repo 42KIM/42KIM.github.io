@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] async/await"
+title: "[JS] async/await"
 date: "2021-05-31"
 tags: ["JavaScript", "async", "await"]
 ---
@@ -82,8 +82,5 @@ f();
 #### 참고
 
 [모던 JavaScript 튜토리얼](https://ko.javascript.info/)  
-
 [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)  
-
-모던 자바스크립트 Deep Dive | 위키북스 | 이웅모
-
+모던 자바스크립트 Deep Dive | 위키북스 | 이웅모  

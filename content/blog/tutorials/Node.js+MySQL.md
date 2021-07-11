@@ -1,5 +1,5 @@
 ---
-title: "[Docs 읽기] Node.js + MySQL"
+title: "[Docs] Node.js + MySQL"
 date: "2021-05-07"
 tags: ["tutorial", "nodejs", "mysql"]
 ---
@@ -124,8 +124,7 @@ DELETE FROM [테이블명] WHERE [칼럼명]='값'					 // 특정 값을 가진 
 
 
 #### 참고
-+ [npm-mysql](https://www.npmjs.com/package/mysql)  
 
-+ [MySQL DOCUMENTATION](https://dev.mysql.com/doc/)  
-
-+ [Preventing SQL injection in Node.js (and other vulnerabilities)](https://blog.sqreen.com/preventing-sql-injection-in-node-js-and-other-vulnerabilities/)
+[npm-mysql](https://www.npmjs.com/package/mysql)  
+[MySQL DOCUMENTATION](https://dev.mysql.com/doc/)  
+[Preventing SQL injection in Node.js (and other vulnerabilities)](https://blog.sqreen.com/preventing-sql-injection-in-node-js-and-other-vulnerabilities/)

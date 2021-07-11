@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] addEventListener의 이벤트 핸들러와 this"
+title: "[JS] addEventListener의 이벤트 핸들러와 this"
 date: "2021-06-22"
 tags: ["JavaScript", "addEventLister"]
 ---

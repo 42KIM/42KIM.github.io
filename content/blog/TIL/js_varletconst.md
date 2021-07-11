@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] var, let, const 마지막 정리"
+title: "[JS] var, let, const 마지막 정리"
 date: "2021-07-10"
 tags: ["JavaScript", "var", "let", "const"]
 ---
@@ -334,4 +334,5 @@ var는 이제 그만 놓아주자.
 
 
 #### 참고
+
 모던 자바스크립트 Deep Dive | 위키북스 | 이웅모

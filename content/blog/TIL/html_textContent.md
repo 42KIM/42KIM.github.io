@@ -92,5 +92,6 @@ HTML 마크업 원본의 구성을 파악하고 싶다면 innerHTML,
 
 
 #### 참고
+
 [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/API/Node/textContent)  
 [What’s Best: innerText vs. innerHTML vs. textContent](https://betterprogramming.pub/whats-best-innertext-vs-innerhtml-vs-textcontent-903ebc43a3fc)

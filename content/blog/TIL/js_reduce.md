@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] reduce() 메서드가 NaN을 반환하는 이유"
+title: "[JS] reduce() 메서드가 NaN을 반환하는 이유"
 date: "2021-07-09"
 tags: ["JavaScript", "reduce"]
 ---

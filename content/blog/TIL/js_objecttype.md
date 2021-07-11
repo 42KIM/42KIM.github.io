@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] 원시 값과 객체의 복사"
+title: "[JS] 원시 값과 객체의 복사"
 date: "2021-06-05"
 tags: ["JavaScript"]
 ---

@@ -57,6 +57,7 @@ tags: ["HTTP", "cookie", "session"]
 
 
 #### 참고
+
 [Opentutorials.org | 세션과 인증](https://www.opentutorials.org/course/3400)  
 [MDN Web Docs | HTTP Cookie](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies)  
 [세션 동작 원리 - 쿠키와 세션의 관계](https://thecodinglog.github.io/web/2020/08/11/what-is-session.html)

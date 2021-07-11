@@ -1,5 +1,5 @@
 ---
-title: "[Docs 읽기] npm이 뭐지?"
+title: "[Docs] npm이 뭐지?"
 date: "2021-04-22"
 tags: ["tutorial", "nodejs"]
 ---
@@ -107,6 +107,5 @@ npm root -g
 
 #### 참고
 
-+ [npm Docs](https://docs.npmjs.com/)  
-
-+ [Poiemaweb](https://poiemaweb.com/)
+[npm Docs](https://docs.npmjs.com/)  
+[Poiemaweb](https://poiemaweb.com/)

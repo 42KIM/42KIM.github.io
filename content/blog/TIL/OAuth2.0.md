@@ -74,8 +74,6 @@ B쇼핑몰은 Google의 Authorization Server로부터 발급받은 Access Token�
 
 #### 참고
 
-+ [The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.1)
-+ [Passport Documentation](http://www.passportjs.org/docs/oauth/)
-
-+ [Opentutorials.org](https://www.opentutorials.org/course/3413)
-
+[The OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.1)  
+[Passport Documentation](http://www.passportjs.org/docs/oauth/)  
+[Opentutorials.org](https://www.opentutorials.org/course/3413)

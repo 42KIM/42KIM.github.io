@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] 깊은 복사/얕은 복사"
+title: "[JS] 깊은 복사/얕은 복사"
 date: "2021-06-08"
 tags: ["JavaScript"]
 ---

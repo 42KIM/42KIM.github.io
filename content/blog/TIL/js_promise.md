@@ -1,5 +1,5 @@
 ---
-title: "[JavaScript] Promise"
+title: "[JS] Promise"
 date: "2021-05-29"
 tags: ["JavaScript", "Promise"]
 ---
@@ -93,7 +93,5 @@ let promise = new Promise((resolve, reject) => {
 #### 참고
 
 [모던 JavaScript 튜토리얼](https://ko.javascript.info/)  
-
 [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)  
-
 모던 자바스크립트 Deep Dive | 위키북스 | 이웅모

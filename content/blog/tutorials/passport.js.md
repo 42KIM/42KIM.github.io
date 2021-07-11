@@ -1,5 +1,5 @@
 ---
-title: "[Docs 읽기] Passport.js"
+title: "[Docs] Passport.js"
 date: "2021-05-05"
 tags: ["tutorial", "passport", "nodejs"]
 ---

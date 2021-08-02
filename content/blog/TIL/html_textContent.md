@@ -1,7 +1,7 @@
 ---
-title: "[HTML/CSS] textContent / innerText / innerHTML 차이"
+title: "[TIL]] textContent / innerText / innerHTML 차이"
 date: "2021-07-05"
-tags: ["HTML", "CSS"]
+tags: ["TIL", "JavaScript", "HTML", "CSS"]
 ---
 HTML element의 텍스트를 가져오거나, 또는 텍스트를 추가해야 하는 경우가 종종 생긴다. 이를 수행할 수 있는 몇 가지 방법이 있다. ```textContent```, ```innerText```, ```innerHTML```의 차이점을 알아보고 무엇을 사용하는 것이 좋을지 알아보자.
 

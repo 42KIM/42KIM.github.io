@@ -1,7 +1,7 @@
 ---
-title: "[JS] reduce() 메서드가 NaN을 반환하는 이유"
+title: "[TIL] reduce() 메서드가 NaN을 반환하는 이유"
 date: "2021-07-09"
-tags: ["JavaScript", "reduce"]
+tags: ["TIL", "JavaScript", "reduce"]
 ---
 프로그래머스에서 [문제](https://programmers.co.kr/learn/courses/30/lessons/42579)를 푸는 데 ```reduce``` 메서드가 왜 ```NaN```을 리턴하는지 도무지 원인을 찾을 수 없었다.
 

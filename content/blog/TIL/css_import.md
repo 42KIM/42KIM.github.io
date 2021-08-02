@@ -1,7 +1,7 @@
 ---
-title: "[HTML/CSS] <link>와 @import"
+title: "[TIL] <link>와 @import"
 date: "2021-06-04"
-tags: ["HTML", "CSS"]
+tags: ["TIL", "HTML", "CSS"]
 ---
 프로젝트에서 페이지 별 CSS 파일에 공통 요소를 적용하기 위해 ```@import```를 사용해 default.css 파일을 불러오려고 했다. 그러다 궁금한 점이 생겼다. a.css 파일 안에 b.css 파일을 import 하는 방식과, HTML 파일에 ```<link>``` 태그를 사용하여  a.css 파일과 b.css 파일을 모두 불러오는 방식의 차이는 뭘까? 조금 오래된 글이긴 하지만 각각의 차이를 설명한 글이 있어서 읽고 정리해본다. [👉원문 보기](https://www.stevesouders.com/blog/2009/04/09/dont-use-import/)  
 

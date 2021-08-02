@@ -1,7 +1,7 @@
 ---
-title: "[JS] 깊은 복사/얕은 복사"
+title: "[TIL] 깊은 복사/얕은 복사"
 date: "2021-06-08"
-tags: ["JavaScript"]
+tags: ["TIL", "JavaScript"]
 ---
 #### 객체의 얕은 복사와 깊은 복사
 

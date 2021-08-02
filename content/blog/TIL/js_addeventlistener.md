@@ -1,7 +1,7 @@
 ---
 title: "[JS] addEventListener의 이벤트 핸들러와 this"
 date: "2021-06-22"
-tags: ["JavaScript", "addEventLister"]
+tags: ["TIL", "JavaScript", "event"]
 ---
 프로젝트에서 ```addEventListener``` 메서드를 사용하면서 겪은 두 가지 문제와 이를 해결한 방법에 관한 글이다.
 
@@ -120,5 +120,5 @@ close_button.addEventListener('click', close_modal);
 
 #### 참고
 
-[MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/API/Event)  
+[MDN Web Docs | Event](https://developer.mozilla.org/ko/docs/Web/API/Event)  
 [PoiemaWeb](https://poiemaweb.com/js-event)

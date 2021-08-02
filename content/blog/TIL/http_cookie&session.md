@@ -1,7 +1,7 @@
 ---
-title: "[HTTP] Cookie와 Session"
+title: "[TIL] HTTP Cookie와 Session"
 date: "2021-06-01"
-tags: ["HTTP", "cookie", "session"]
+tags: ["TIL", "HTTP", "cookie", "session"]
 ---
 로그인 유저 관리 기능을 구현하기 위해 웹 애플리케이션에서 유저 인증을 어떻게 확인하여 관리하는지에 대해 알아보려고 한다. 
 

@@ -1,7 +1,7 @@
 ---
-title: "템플릿 엔진과 SSR, CSR"
+title: "[TIL] 템플릿 엔진과 SSR, CSR"
 date: "2021-07-13"
-tags: ["SSR", "CSR", "템플릿 엔진"]
+tags: ["TIL", "SSR", "CSR", "템플릿 엔진"]
 ---
 # 템플릿 엔진 Template Engine
 

@@ -1,7 +1,7 @@
 ---
-title: "[JS] var, let, const 마지막 정리"
+title: "[TIL] var, let, const 정리"
 date: "2021-07-10"
-tags: ["JavaScript", "var", "let", "const"]
+tags: ["TIL", "JavaScript", "var", "let", "const"]
 ---
 자바스크립트의 변수 선언 키워드 ```var```, ```let```, ```const```에 관한 내용 총정리. 이제 다시는 찾아보지 말자.
 

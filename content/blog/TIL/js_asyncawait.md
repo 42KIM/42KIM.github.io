@@ -1,7 +1,7 @@
 ---
-title: "[JS] async/await"
+title: "[TIL] async/await"
 date: "2021-05-31"
-tags: ["JavaScript", "async", "await"]
+tags: ["TIL", "JavaScript", "async", "await", "비동기"]
 ---
 [이전 글](https://42kim.github.io/TIL/js_promise/)에서 프로미스의 한계를 보완하기 위해 ES8에서 도입된 것이 ```async/await```라고 했다.
 

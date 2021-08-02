@@ -1,7 +1,7 @@
 ---
-title: "[JS] Promise"
+title: "[TIL] Promise"
 date: "2021-05-29"
-tags: ["JavaScript", "Promise"]
+tags: ["TIL", "JavaScript", "Promise", "비동기"]
 ---
 프로젝트를 진행하며 OAuth를 통한 회원가입과 로그인을 한 번에 처리해야할 필요가 발생했다. SNS 계정으로 처음 서비스를 이용하는 경우, 자동으로 회원가입을 시킨 뒤에 로그인까지 바로 이어서 시켜줘야 하기 때문이다. 그러다 보니,
 

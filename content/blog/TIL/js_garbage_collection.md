@@ -111,8 +111,7 @@ reference-counting 알고리즘은 참조 여부로 가비지 컬렉션 대상�
 
 
 
-#### 참고
+#### 참고  
 
-[MDN Web Docs 자바스크립트의 메모리관리](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)
-
+[MDN Web Docs | 자바스크립트의 메모리 관리](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management)  
 [가비지 컬렉션](https://ko.javascript.info/garbage-collection)

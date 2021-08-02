@@ -1,7 +1,7 @@
 ---
 title: "[TIL] 웹페이지가 렌더링 되는 과정(DOM)"
 date: "2021-07-15"
-tags: ["HTML", "DOM", "CSSOM"]
+tags: ["TIL", "HTML", "DOM", "CSSOM"]
 ---
 HTML은 웹에서 정보를 쉽게 보여주기 위해서 구조화한 언어이다. 이러한 언어를 마크업(markup)이라고 한다.
 

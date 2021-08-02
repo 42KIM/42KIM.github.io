@@ -60,6 +60,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </li>
         </ul>
       </nav>
+      <Utterances repo="42KIM/42KIM.github.io" />
     </Layout>
   )
 }

@@ -29,6 +29,7 @@ const Layout = ({ location, title, children }) => {
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>
+      <Utterances repo="42KIM/42KIM.github.io" />
     </div>
   )
 }

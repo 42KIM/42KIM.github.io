@@ -92,7 +92,7 @@ reference-counting 알고리즘은 참조 여부로 가비지 컬렉션 대상�
 
 **이 때 주의할 것은** root에서부터 참조 가능한 방향에 있는 값들만이 도달 가능한 값이 된다는 점이다. 만약 ```div``` 요소가 도달 가능한 범위에 속한 특정 요소를 참조하고 있더라도, 외부(반대 방향)에서 ```div``` 요소에 접근할 수 있는 방법이 없기 때문에 당연히 도달할 수 없는 값이 되어 ```div```는 결국 가비지 컬렉터에 의해 삭제된다는 뜻이다.
 
-(추가적으로 mark-and-sweep 알고리즘을 최적화 하는 기법에는 generational collection, incremental collection, idle-time collection 등이 있다. [참고](https://ko.javascript.info/garbage-collection))
+([여기](https://ko.javascript.info/garbage-collection)에서 추가적으로 언급하는 mark-and-sweep 알고리즘을 최적화 하는 기법 generational collection, incremental collection, idle-time collection 등에 대해서는 추후 자세히 알아보자.)
 
 
 

@@ -1,3 +1,8 @@
+---
+title: "[TIL] JavaScript의 클로저"
+date: "2021-08-03"
+tags: ["TIL", "JavaScript", "closure"]
+---
 자바스크립트의 클로저(closure) 개념을 제대로 이해하기 위해서는 먼저 자바스크립트의 [스코프](https://42kim.github.io/TIL/js_varletconst/), 실행 컨텍스트, 프로토타입, [가비지 컬렉션](https://42kim.github.io/TIL/js_garbage_collection/) 등에 대한 이해가 선행되면 좋을 것 같다. 각각의 자세한 내용은 따로 다루기로 하고 이 글에서는 클로저에 집중하기로 한다.
 
 

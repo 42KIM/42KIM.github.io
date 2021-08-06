@@ -11,9 +11,9 @@ tags: ["TIL", "JavaScript"]
 
 ## 프로퍼티 어트리뷰트
 
-자바스크립트 엔진은 프로퍼티를 생성할 때 프로퍼티의 상태를 나타내는 **프로퍼티 어트리뷰트**를 기본값으로 자도 정의한다. 프로퍼티의 상태란 '값value', '값의 갱신 가능 여부writable', '열거 가능 여부enumerable', '재정의 가능 여부configurable'를 뜻한다. 이들을 **프로퍼티 플래그**라고도 한다.
+자바스크립트 엔진은 프로퍼티를 생성할 때 프로퍼티의 상태를 나타내는 **프로퍼티 어트리뷰트**를 기본값으로 자동 정의한다. 프로퍼티의 상태란 '값value', '값의 갱신 가능 여부writable', '열거 가능 여부enumerable', '재정의 가능 여부configurable'를 뜻한다. 이들을 **프로퍼티 플래그**라고도 한다.
 
-각각의 프로퍼티 어트리뷰트에 직접 접근할 수는 없지만, ```Object.getOwnPropertyDescriptor``` 메서드를 사용하면 정보들이 제공되는 프로퍼티 디스크립터 객체가 반환되어 간접적으로 확인할 수 있다. 일반적인 방식(객체 리터럴, 프로퍼티 동적 추가 등)으로 프로퍼티를 만들면 프로퍼티 플래그의 값은 모두 ```true```이다. ```Object.defineProperty``` 메서드를 사용하면 프로퍼티의 플래그를 변경할 수 있다. 만약 해당되는 프로퍼티가 없다면 새로운 프로퍼티가 생성되는데 이때 플래그 값을 지정하지 않으면 모든 플래그 값이 ```false```로 생성된다.  
+각각의 프로퍼티 어트리뷰트에 직접 접근할 수는 없지만, ```Object.getOwnPropertyDescriptor``` 메서드를 사용하면 정보들이 제공되는 **프로퍼티 디스크립터 객체**가 반환되어 간접적으로 확인할 수 있다. 일반적인 방식(객체 리터럴, 프로퍼티 동적 추가 등)으로 프로퍼티를 만들면 프로퍼티 플래그의 값은 모두 ```true```이다. ```Object.defineProperty``` 메서드를 사용하면 프로퍼티의 플래그를 변경할 수 있다. 만약 해당되는 프로퍼티가 없다면 새로운 프로퍼티가 생성되는데 이때 플래그 값을 지정하지 않으면 모든 플래그 값이 ```false```로 생성된다.  
 
 즉, 일반적인 방식으로 생성된 프로퍼티의 플래그 값은 true이지만, defineProperty 메서드로 생성한 프로퍼티의 플래그는 false라는 차이가 있다.
 
@@ -40,7 +40,7 @@ tags: ["TIL", "JavaScript"]
 let player = {
     // 데이터 프로퍼티들
     firstName : 'Lionel',
-    lastName : 'Messi'
+    lastName : 'Messi',
     // getter 함수
     get fullName() {
         return `${this.firstName} ${this.lastName}`;
@@ -74,13 +74,13 @@ console.log(player.lastName());		// Son
 
 ```javascript
 const string = String("hi");
-const conString = new String("hi")
+const objString = new String("hi")
 
 console.log(string);	// hi
-console.log(conString);	// String {"hi"}
+console.log(objString);	// String {"hi"}
 
 console.log(typeof(string));	// string
-console.log(typeof(conString));	// object
+console.log(typeof(objString));	// object
 ```
 
 이처럼 new 연산자를 생성자 함수와 함께 사용하면 객체, 인스턴스를 반환한다.

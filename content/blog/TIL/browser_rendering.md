@@ -1,6 +1,6 @@
 ---
 title: "브라우저 렌더링 (Browser Rendering)"
-date: "2021-08-06"
+date: "2021-08-08"
 tags: ["TIL", "브라우저", "렌더링", "DOM", "CSSOM"]
 ---
 ### Browser.

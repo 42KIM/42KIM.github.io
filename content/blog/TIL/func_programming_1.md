@@ -288,3 +288,27 @@ const person = {
 const { name, info: { job }} = person;
 console.log(name, job);	// Kim student
 ```
+
+
+
+### 제너레이터
+
+ES6에서 도입된 제너레이터는 코드 블록의 실행을 일시 중지했다가 필요할 때 재개할 수 있다. 한 번에 하나의 값만을 반환하는 일반 함수와는 달리, 제너레이터는 여러 개의 값을 필요에 따라 반환(**yield**)할 수 있다. 
+
+호출하면 코드 블록을 실행하는 일반 함수와는 달리, 제너레이터를 호출하면 제너레이터 객체를 반환한다. 제너레이터 객체는 **이터러블인 이터레이터**이다. 따라서 next() 메서드를 호출하면 제너레이터 함수 내부의 ```yield``` 표현식까지 코드를 실행하고, yield된 값을 이터레이터 리절트 객체의 ```value``` 값으로 반환한다.
+
+```javascript
+function *gen() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+const generator = gen();
+console.log(generator);			// gen {<suspended>}
+console.log(generator.next());	// {value: 1, done: false}
+console.log(generator.next());	// {value: 2, done: false}
+console.log(generator.next());	// {value: 3, done: false}
+console.log(generator.next());	// {value: undefined, done: true}
+```
+

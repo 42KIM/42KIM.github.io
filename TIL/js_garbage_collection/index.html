@@ -18,7 +18,7 @@
 <p>결론부터 말하자면, 자바스크립트 엔진은 더 이상 사용되지 않는 값을 찾아내기 위해 <strong>mark-and-sweep</strong>이라는 알고리즘을 사용한다. 이 알고리즘을 설명하기에 앞서, 알고 있으면 이해에 더 도움이 될 것 같은 알고리즘이 하나 있다. </p>
 <p>바로 <strong>reference-counting</strong> 알고리즘이다. 내가 가비지 컬렉션에 대해서 막연하게 유추했을 때 이런 방법을 쓰면 되지 않을까 라고 생각했었는데, 그 방식의 문제점을 여실히 드러내주는 알고리즘이기 때문이다.</p>
 <h4>Reference-counting (참조-세기) 알고리즘</h4>
-<p>reference-counting 알고리즘에서 더 이상 필요없는 오브젝트 즉, 가비지는 “어떤 다른 객체에 의해서도 참조되지 않는 객체”이다. 이 알고리즘의 판단 기준은 <strong>참조 여부</strong>인 것이다.</p>
+<p>reference-counting 알고리즘에서 더 이상 필요없는 오브젝트 즉, 가비지는 “어떤 다른 객체에 의해서도 참조되지 않는 객체”이다. 그 누구도 자신을 참조하지 않는다면, 해당 객체의 참조 카운트는 0이 된다. 이 알고리즘의 가비지 판단 기준은 <strong>참조 카운트가 0인 객체</strong>인 것이다.</p>
 <p>언듯 보기엔 이 방식이 별 문제가 없어보인다. 누군가에 의해 참조되고 있다는 것은, 추후에 다시 사용될 가능성이 있는 값이기에 가비지로 분류하지 않고 남겨두면 되는 것 아닌가? 라고 생각되기 때문이다. </p>
 <p>따라서 reference-counting 알고리즘이 문제가 되려면 ‘어딘가에서 참조되고 있지만 다시 사용될 수는 없는 경우’가 되어야 한다. 그런 경우가 가능할까? 가능하다. 바로 <strong>순환 참조(circular reference)</strong>의 상황이 그렇다. </p>
 <p>아래는 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management">MDN</a>에 기술된 순환 참조의 예시다. </p>
@@ -29,7 +29,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
 <p>DOM 요소인 <code class="language-text">div</code>는 <code class="language-text">circularReference</code> 속성으로 자기 자신을 참조한다. 한편 <code class="language-text">lotsOfData</code> 속성으로는 많은 양의 데이터를 가지고 있다. </p>
 <p>만약 해당 DOM 요소가 더 이상 페이지에서 필요하지 않아 DOM 트리에서 제거된다면, <code class="language-text">div</code>의 속성들도 더 이상 필요하지 않을 것이다. 이에 따라 메모리의 많은 공간을 차지하지만 더 이상의 쓸모는 없는 <code class="language-text">lotsOfData</code> 같은 속성의 값을 메모리에서 해제하는 것이 효율적인 메모리 관리법일 것이다.</p>
-<p>그러나 reference-counting 알고리즘은 ‘참조 여부’를 판단의 기준으로 삼는다고 했다. 그 누구도 <code class="language-text">div</code> DOM 요소를 필요로 하지 않는 상황이지만 <code class="language-text">div</code> 요소는 속성으로 자기 자신인 <code class="language-text">div</code>를 ‘참조’하고 있다. 따라서 가비지 컬렉터에 의해 정리되어야 할 가비지로 판단되지 않는다. </p>
+<p>그러나 reference-counting 알고리즘은 ‘참조 여부’를 판단의 기준으로 삼는다고 했다. 그 누구도 <code class="language-text">div</code> DOM 요소를 필요로 하지 않는 상황이지만 <code class="language-text">div</code> 요소는 속성으로 자기 자신인 <code class="language-text">div</code>를 ‘참조’하고 있다. 참조 카운트가 1인 것이다. 따라서 가비지 컬렉터에 의해 정리되어야 할 가비지로 판단되지 않는다. </p>
 <p>따라서 <code class="language-text">div</code>는 다시는 쓰이지 않지만, 메모리의 큰 부분을 떡하니 차지하며 보이지 않는 곳에서 구천을 떠돌며 메모리 누수의 원인으로 작용하는 것이다. 이는 브라우저의 속도 저하를 유발한다. (익스플로러 6와 7은 실제로 reference-counting 알고리즘을 사용하여 가비지 컬렉션을 수행한다고 한다. 새로운 뭔가를 공부할 때마다 익스플로러를 쓰면 안되는 이유도 하나씩 배우는 중이다..😂)</p>
 <p>이처럼 참조 여부만으로 메모리에 할당된 값의 쓰임을 판단하는 reference-counting 알고리즘의 한계를 알아보았다. </p>
 <h4>mark-and-sweep (표시하고-쓸기) 알고리즘</h4>

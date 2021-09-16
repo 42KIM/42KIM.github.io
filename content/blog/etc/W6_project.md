@@ -5,7 +5,7 @@ tags: ["데브코스", "회고"]
 ---
 바닐라 JS로 Notion을 클로닝한 프로젝트를 진행하며 느꼈던 점들을 정리해보고자 한다.
 
-![노션 클로닝](https://user-images.githubusercontent.com/75300807/132012009-06cbebf7-1c2d-43eb-8f4d-2a9feecfba40.gif)
+<img src="https://user-images.githubusercontent.com/75300807/132012009-06cbebf7-1c2d-43eb-8f4d-2a9feecfba40.gif" width=100%>
 
 
 
@@ -15,7 +15,7 @@ tags: ["데브코스", "회고"]
 
 ## 설계
 
-![components](https://user-images.githubusercontent.com/75300807/132947303-1af79431-18f4-4fcc-803f-420187962e6a.png)
+<img src="https://user-images.githubusercontent.com/75300807/132947303-1af79431-18f4-4fcc-803f-420187962e6a.png" width=100%>
 
 (최초의 계획과는 달라졌지만) 내가 구현한 컴포넌트 구조를 도식화하면 위와 같다. 
 

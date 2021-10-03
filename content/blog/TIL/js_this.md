@@ -1,6 +1,6 @@
 ---
 title: "[TIL] JavaScript의 this"
-date: "2021-08-19"
+date: "2021-10-03"
 tags: ["TIL", "JavaScript", "this"]
 ---
 
@@ -217,11 +217,61 @@ const user = new User(30)
 console.log(user.getAge()) // undefined
 ```
 
-<!-- ### 이벤트 핸들러의 this
+### 이벤트 핸들러의 this
 
-this의 예외 케이스가 또 있다. 바로 ```addEventListener``` 메서드를 사용하여 이벤트 핸들러로 등록한 콜백 함수의 this가 그렇다. 이벤트 핸들러의 this는 **이벤트가 발생한 DOM 요소**를 가리킨다.
+헷갈릴만한 케이스가 하나 더 있다. 이벤트 핸들러 함수 내부에서의 this다. 이벤트 핸들러를 사용하는 방식으로는 인라인 이벤트 핸들러, 이벤트 핸들러 프로퍼티, addEventListener 메서드를 사용하는 방식이 있다.
 
-자세한 내용은 이전 포스팅으로 대체한다. 👉[addEventListener의 이벤트 핸들러와 this](https://42kim.github.io/TIL/js_addeventlistener/) -->
+- 인라인 이벤트 핸들러
+
+  ```html
+  <button onclick="checkThis()">Click Me!</button>
+
+  <script>
+    function checkThis() {
+      console.log(this)
+    }
+  </script>
+  ```
+
+  먼저 인라인 이벤트 핸들러 함수의 this는 전역 객체 winodw를 가리킨다. checkThis 함수가 '일반 함수'로서 호출되었기 때문이다. (하지만 크롬에서는 보안상의 문제로 인라인 이벤트 핸들러가 실행되지 않는 것으로 보인다)
+
+- 이벤트 핸들러 프로퍼티
+
+  ```javascript
+  const button = document.querySelector("button")
+
+  button.onclick = function () {
+    console.log(this) // <button>클릭<button>
+  }
+  ```
+
+  이벤트 핸들러 프로퍼티 방식에서 함수의 this는 이벤트 핸들러가 바인딩된 HTML 요소를 가리킨다. 즉 이벤트 객체의 currentTarget과 동일하다. 이벤트 핸들러는 메서드로서 호출되었기 때문에 호출자에 this가 바인딩 된 것이라고 생각해도 될 것 같다.
+
+  (MDN을 살펴보니 onclick 속성이 지정된 경우 'addEventListner()에 따라 this 값을 바인드하는 핸들러 함수로 래핑된다'고 설명하고 있다)
+
+- addEventListener
+
+  addEventListener 메서드를 사용할 때는 콜백 함수가 일반 함수일 때와 화살표 함수일 때를 구분해야 한다.
+
+  - 일반 함수
+
+    ```javascript
+    const button = document.querySelector("button")
+
+    button.addEventListener("click", checkThis) // <button>클릭<button>
+    ```
+
+  - 화살표 함수
+
+    ```javascript
+    const button = document.querySelector("button")
+
+    button.addEventListener("click", () => {
+      conosle.log(this) // Window {window: Window, self: Window, …}
+    })
+    ```
+
+  이처럼 addEventListener의 이벤트 핸들러는 앞서 살펴본 규칙처럼 일반 함수로 호출되냐, 화살표 함수로 호출되냐에 따라 해당 규칙을 따르는 것으로 보인다.
 
 ## 📌 오류 줄이기
 
@@ -321,4 +371,5 @@ console.log(arrowThis.call({ a: 1 })) // Window {window: Window, self: Window, 
 
 [메서드와 this](https://ko.javascript.info/object-methods)  
 [MDN Web Docs](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  
+[이벤트](https://poiemaweb.com/js-event)  
 모던 자바스크립트 Deep Dive | 위키북스 | 이웅모
